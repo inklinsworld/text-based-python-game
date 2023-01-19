@@ -23,7 +23,7 @@ recipes = {
 }
 
 # Create a list of possible actions
-actions = ["eat", "drink", "sleep", "explore", "craft", "mine", "heal"]
+actions = ["eat", "drink", "sleep", "explore", "craft", "mine", "heal","quit"]
 
 # Create the game loop
 while running == True:
@@ -98,6 +98,10 @@ while running == True:
             for item in required_items:
                 inventory.remove(item)
             inventory.append(craft_item)
-
-if health <= 0:
-    print("you died")
+            
+    elif action == "quit":
+        running = False
+        
+    if health <= 0:
+        print("you died")
+        running = False
